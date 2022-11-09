@@ -21,12 +21,9 @@ contract Counter {
     function send() public view returns (bytes memory) {
         require(receivingCounter != address(0), "Receiving counter not set");
         return IAMB(AMB).send(receivingCounter, abi.encodeWithSignature("increment()"));
-        //  data;
-        // IAMB.send(...) // TODO: figure out data to send
     }
 
     function increment() public {
-        // ... // TODO: validation of message call
         counter++;
     }
 }

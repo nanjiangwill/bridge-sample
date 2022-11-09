@@ -4,21 +4,21 @@ pragma solidity ^0.8.16;
 import "./IAMB.sol";
 
 contract AMB is IAMB {
-    address public immutable validator;
+    address public immutable relayer;
     address public recipientAMB;
 
-    constructor(address _validator) {
-        validator = _validator;
+    constructor(address _relayer) {
+        relayer = _relayer;
     }
 
     modifier onlyValidator() {
-        require(msg.sender == validator, "Only validator can call this method");
+        require(msg.sender == relayer, "Only validator can call this method");
         _;
     }
 
     function setRecipientAMB(address _recipientAMB) public onlyValidator {
         require(
-            msg.sender == validator,
+            msg.sender == relayer,
             "Only validator can set recipient AMB"
         );
         recipientAMB = _recipientAMB;
@@ -31,10 +31,6 @@ contract AMB is IAMB {
     {
         require(recipientAMB != address(0), "Recipient AMB not set");
         return abi.encode(recipientAMB, to, data);
-    }
-
-    function decodeResult(bytes memory result) public pure returns (address, address, bytes memory) {
-        return abi.decode(result, (address, address, bytes));
     }
 
     function receive(bytes calldata inputData) public onlyValidator {

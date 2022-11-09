@@ -1,11 +1,11 @@
 ## Setup
 ```
-forge create --rpc-url https://goerli.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <validator-address> --private-key <private-key> src/AMB.sol:AMB --etherscan-api-key <API> --verify
+forge create --rpc-url https://goerli.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <relayer-address> --private-key <private-key> src/AMB.sol:AMB --etherscan-api-key <API> --verify
 
 forge create --rpc-url https://goerli.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <AMB-contract> --private-key <private-key> src/Counter.sol:Counter --etherscan-api-key <API> --verify
 
 
-forge create --rpc-url https://polygon-mumbai.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <validator-address> --private-key <private-key> src/AMB.sol:AMB --etherscan-api-key <API> --verify
+forge create --rpc-url https://polygon-mumbai.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <relayer-address> --private-key <private-key> src/AMB.sol:AMB --etherscan-api-key <API> --verify
 
 forge create --rpc-url https://polygon-mumbai.infura.io/v3/6180f6a9f8e94419b2f3a1d42e814af2 --constructor-args <AMB-contract> --private-key <private-key> src/Counter.sol:Counter --etherscan-api-key <API> --verify
 ```

@@ -26,3 +26,7 @@ forge create --rpc-url https://polygon-mumbai.infura.io/v3/6180f6a9f8e94419b2f3a
 
 ## Some random thoughts
 1. If we trust third party relayer, we can use Hyperlane inter-chain message.
+
+### How message relayers will be paid for the gas
+1. Users need to pay tips to relayers(in the same transaction)
+

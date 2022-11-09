@@ -1,14 +1,32 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
+
+import "./IAMB.sol";
 
 contract Counter {
-    uint256 public number;
+    address public AMB;
+    address public sendingCounter;
+    address public receivingCounter;
+    uint256 public counter;
 
-    function setNumber(uint256 newNumber) public {
-        number = newNumber;
+    constructor(address _AMB) {
+        AMB = _AMB;
+        sendingCounter = address(this);
+    }
+
+    function setReceivingCounter(address _receivingCounter) public {
+        receivingCounter = _receivingCounter;
+    }
+
+    function send() public view returns (bytes memory) {
+        require(receivingCounter != address(0), "Receiving counter not set");
+        return IAMB(AMB).send(receivingCounter, abi.encodeWithSignature("increment()"));
+        //  data;
+        // IAMB.send(...) // TODO: figure out data to send
     }
 
     function increment() public {
-        number++;
+        // ... // TODO: validation of message call
+        counter++;
     }
 }
